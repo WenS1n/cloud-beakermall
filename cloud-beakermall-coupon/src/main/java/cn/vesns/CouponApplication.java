@@ -6,6 +6,7 @@ package cn.vesns;/**
  * @software: IntelliJ IDEA
  */
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
@@ -15,8 +16,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @ProjectName: cloud-beakermall
  * @Description:
  * @date: 2021-12-06 0:41
+ *
+ * nacos作为配置中心统一管理
+ *
  */
 @EnableDiscoveryClient
 @SpringBootApplication
 public class CouponApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(CouponApplication.class, args);
+    }
 }
