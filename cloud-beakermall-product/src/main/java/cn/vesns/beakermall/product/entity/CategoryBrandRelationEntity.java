@@ -8,11 +8,11 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * Ʒ?Ʒ???????
+ * 品牌分类关联
  * 
  * @author vesns
  * @email 2865047755@gmail.com
- * @date 2021-12-06 17:51:12
+ * @date 2021-12-09 17:29:02
  */
 @Data
 @TableName("pms_category_brand_relation")
@@ -25,11 +25,11 @@ public class CategoryBrandRelationEntity implements Serializable {
 	@TableId
 	private Long id;
 	/**
-	 * Ʒ??id
+	 * 品牌id
 	 */
 	private Long brandId;
 	/**
-	 * ????id
+	 * 分类id
 	 */
 	private Long catelogId;
 	/**

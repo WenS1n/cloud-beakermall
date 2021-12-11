@@ -3,6 +3,7 @@ package cn.vesns.beakermall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+//import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,11 +19,11 @@ import cn.vesns.common.utils.R;
 
 
 /**
- * sku??Ϣ
+ * sku信息
  *
  * @author vesns
  * @email 2865047755@gmail.com
- * @date 2021-12-06 17:51:12
+ * @date 2021-12-09 17:29:02
  */
 @RestController
 @RequestMapping("product/skuinfo")

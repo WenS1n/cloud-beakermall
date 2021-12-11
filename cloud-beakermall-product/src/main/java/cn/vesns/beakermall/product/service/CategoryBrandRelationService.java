@@ -7,11 +7,11 @@ import cn.vesns.beakermall.product.entity.CategoryBrandRelationEntity;
 import java.util.Map;
 
 /**
- * Ʒ?Ʒ???????
+ * 品牌分类关联
  *
  * @author vesns
  * @email 2865047755@gmail.com
- * @date 2021-12-06 17:51:12
+ * @date 2021-12-09 17:29:02
  */
 public interface CategoryBrandRelationService extends IService<CategoryBrandRelationEntity> {
 

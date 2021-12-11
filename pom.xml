@@ -18,6 +18,7 @@
         <module>renren-fast-master</module>
         <module>renren-generator-master</module>
         <module>cloud-beakermall-gateway</module>
+        <module>cloud-beakermall-third-party</module>
     </modules>
 
 

@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5t7ioARg3RzBHwQi47KG
+      secret-key: X3V9KEjCnYcH8u3ERudFpti7SHrWr6
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        bucket: cloud-beakermall
+  application:
+    name: cloud-beakermall-third-party
+server:
+  port: 30000

@@ -1,23 +1,17 @@
 package cn.vesns.beakermall.product.dao;
 
 import cn.vesns.beakermall.product.entity.BrandEntity;
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 品牌
  * 
- * @author wanwgei
- * @email i@weiwang.com
- * @date 2020-09-13 10:48:45
+ * @author vesns
+ * @email 2865047755@gmail.com
+ * @date 2021-12-09 17:29:03
  */
 @Mapper
 public interface BrandDao extends BaseMapper<BrandEntity> {
-
-
+	
 }

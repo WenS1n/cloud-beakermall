@@ -15,6 +15,14 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: third-party-route
+          uri: lb://cloud-beakermall-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+
         - id: route_renren_fast
           uri: lb://renren-fast
           predicates:

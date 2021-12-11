@@ -1,11 +1,13 @@
 package cn.vesns.beakermall.product.entity;
 
+import cn.vesns.common.valid.AddGroup;
+import cn.vesns.common.valid.ListValue;
+import cn.vesns.common.valid.UpdateGroup;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
-
-
+import java.util.Date;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
 
@@ -14,13 +16,9 @@ import javax.validation.constraints.*;
 /**
  * 品牌
  * 
- * @author wanwgei
- * @email i@weiwang.com
- * @date 2020-09-13 10:48:45
- *
- * @NotNull: CharSequence, Collection, Map 和 Array 对象不能是 null, 但可以是空集（size = 0）。
- * @NotEmpty: CharSequence, Collection, Map 和 Array 对象不能是 null 并且相关对象的 size 大于 0。
- * @NotBlank: String 不是 null 且 至少包含一个字符
+ * @author vesns
+ * @email 2865047755@gmail.com
+ * @date 2021-12-09 17:29:03
  */
 @Data
 @TableName("pms_brand")
@@ -29,22 +27,22 @@ public class BrandEntity implements Serializable {
 
 	/**
 	 * 品牌id
-	 *
-	 * 新增品牌，不能指定id，数据库自增
-	 * 修改品牌信息，必须指定id
 	 */
-	@TableId
+	@Null(message = "新增不能指定id",groups = {AddGroup.class})
+	@NotNull(message = "修改必须指定id",groups = {UpdateGroup.class})
 
+	@TableId
 	private Long brandId;
 	/**
 	 * 品牌名
 	 */
-
+	@NotBlank(message = "品牌名称必须提交",groups = {AddGroup.class,UpdateGroup.class})
 	private String name;
 	/**
 	 * 品牌logo地址
 	 */
-
+	@NotEmpty(groups = {AddGroup.class})
+	@URL(message = "logo必须是一个合法的url地址",groups = {AddGroup.class,UpdateGroup.class})
 	private String logo;
 	/**
 	 * 介绍
@@ -53,17 +51,19 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
-
+	@ListValue(values = {0,1},groups = {AddGroup.class})
 	private Integer showStatus;
 	/**
 	 * 检索首字母
 	 */
-
+	@NotEmpty(groups = {AddGroup.class})
+	@Pattern(regexp = "^[a-zA-Z]$",message = "检索首字母必须是一个字母",groups = {AddGroup.class,UpdateGroup.class})
 	private String firstLetter;
 	/**
 	 * 排序
 	 */
-
+	@NotNull(groups = {AddGroup.class})
+	@Min(value = 0,message = "排序必须大于等于0",groups = {AddGroup.class,UpdateGroup.class})
 	private Integer sort;
 
 }

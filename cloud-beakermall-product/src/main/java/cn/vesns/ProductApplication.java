@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+
 /**
  * @author: vesns vip865047755@126.com
  * @Title: ProductApplication
@@ -11,6 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Description:
  * @date: 2021-12-06 1:09
  */
+
 
 @EnableDiscoveryClient
 @SpringBootApplication
