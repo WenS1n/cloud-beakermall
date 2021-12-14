@@ -1,16 +1,17 @@
 package cn.vesns.beakermall.product.service.impl;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.vesns.common.utils.PageUtils;
-import cn.vesns.common.utils.Query;
-
 import cn.vesns.beakermall.product.dao.BrandDao;
 import cn.vesns.beakermall.product.entity.BrandEntity;
 import cn.vesns.beakermall.product.service.BrandService;
+import cn.vesns.common.utils.PageUtils;
+import cn.vesns.common.utils.Query;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 
 @Service("brandService")
@@ -18,9 +19,16 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+
+        String key = (String) params.get("key");
+        QueryWrapper<BrandEntity> queryWrapper = new QueryWrapper<>();
+        System.out.println(!StringUtils.isEmpty(key));
+        if (!StringUtils.isEmpty(key)) {
+            queryWrapper.eq("brand_id",key).or().like("name",key);
+        }
         IPage<BrandEntity> page = this.page(
                 new Query<BrandEntity>().getPage(params),
-                new QueryWrapper<BrandEntity>()
+                queryWrapper
         );
 
         return new PageUtils(page);

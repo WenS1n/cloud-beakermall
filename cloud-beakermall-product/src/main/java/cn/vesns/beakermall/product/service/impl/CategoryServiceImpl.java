@@ -10,9 +10,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -48,6 +46,23 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         baseMapper.deleteBatchIds(asList);
 
 
+    }
+
+    @Override
+    public Long[] findCatelogPath(Long attrGroupId1) {
+        List<Long> paths = new ArrayList<>();
+        List<Long> parents = findParents(attrGroupId1, paths);
+        Collections.reverse(parents);
+        return parents.toArray(new Long[parents.size()]);
+    }
+
+    private List<Long> findParents(Long categoryId,List<Long> paths){
+        paths.add(categoryId);
+        CategoryEntity byId = this.getById(categoryId);
+        if (byId.getParentCid() != 0) {
+            findParents(byId.getParentCid(),paths);
+        }
+        return paths;
     }
 
     /**

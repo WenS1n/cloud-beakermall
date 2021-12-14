@@ -19,6 +19,7 @@
         <module>renren-generator-master</module>
         <module>cloud-beakermall-gateway</module>
         <module>cloud-beakermall-third-party</module>
+        <module>cloud-beakermall-search</module>
     </modules>
 
 
